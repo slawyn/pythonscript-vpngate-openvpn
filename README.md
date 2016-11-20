@@ -1,5 +1,4 @@
-# pythonscript-vpngate-openvpn
-Python script that lets you connect to vpngate openvpn servers. Currently designed to work on linux, but can be easily modified to work under windows.
+This script can be used by Linux users to connect to vpngate openvpn servers.
+python openvpngate.py update -- to update the csvlist
+python openvpngate.py config -- to select a server from the list
 
-python vpngate.py update  -- to download the csvlist of vpngate servers
-python vpngate.py config  -- to choose a vpn server from the existing csvlist
