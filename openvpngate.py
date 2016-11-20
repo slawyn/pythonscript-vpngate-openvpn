@@ -35,7 +35,7 @@ def print_formated_line(num, list):
     print line
 
 def choose_vpn(headers, vpn, ovpn):
-
+    against_dns_leak= "script-security 2\nup /etc/openvpn/update-resolv-conf\ndown /etc/openvpn/update-resolv-conf\n"
     while(True):
         line="Number\t"
         for item in headers:
@@ -49,6 +49,7 @@ def choose_vpn(headers, vpn, ovpn):
         filename= vpn[value][0]
         f = open(filename,'w')
         f.write(ovpn[value])
+        f.write(against_dns_leak)
         f.close()
         call(['sudo','openvpn', '--config',filename])
     return
@@ -66,7 +67,9 @@ if len(sys.argv)>1:
 
             print "Writing csvlist"
             f.write("Updated on " +time.strftime("%H:%M:%S %d/%m/%Y")+"\n")
+
             f.write(str(soup))
+
         except:
             print "Unexpected Error:" + str(sys.exc_info()[0])
         f.close()
